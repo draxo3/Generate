@@ -2,53 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Key Generator | Secure Access</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRUX Key Generator</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div class="bubbles"></div>
+  <div class="container">
+    <h1>CRUX Key Generator</h1>
+    <p>Generate a secure, one-time key valid for 24 hours</p>
+    <button id="generateBtn">Generate Key</button>
 
-  <header>
-    <h1>KeyGen Vault</h1>
-    <p>Your secure access starts here.</p>
-  </header>
+    <div id="keyPanel" class="hidden">
+      <h2>Your Key:</h2>
+      <p id="generatedKey"></p>
+      <button id="copyBtn">Copy to Clipboard</button>
+    </div>
 
-  <main>
-    <section class="card">
-      <h2>Generate Your Access Key</h2>
-      <button id="generateBtn">Generate Key</button>
-      <div id="keyOutput"></div>
-    </section>
-
-    <section class="card" id="faq">
-      <h2>Frequently Asked Questions</h2>
-      <div class="faq-item">
-        <h3>How long does a key last?</h3>
-        <p>Each key is valid for 24 hours from the time of generation.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Can I generate multiple keys?</h3>
-        <p>You can, but each key is tracked separately in our database.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Is it safe to share my key?</h3>
-        <p>No. Your key is unique and should be kept confidential.</p>
-      </div>
-    </section>
-
-    <section class="card" id="about">
-      <h2>About KeyGen Vault</h2>
-      <p>
-        KeyGen Vault is a secure and modern platform for generating temporary software access keys.
-        Ideal for businesses and developers, our system ensures that each key is encrypted and valid for 24 hours only.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 KeyGen Vault. All rights reserved.</p>
-  </footer>
+    <div id="statusMessage"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
