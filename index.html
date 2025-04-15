@@ -1,99 +1,55 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Key Generator</title>
-  <style>
-    body {
-      margin: 0;
-      background: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-    }
-    .container {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 5px solid purple;
-      box-shadow: 0 0 20px purple;
-    }
-    .button {
-      padding: 10px 20px;
-      background: purple;
-      border: none;
-      color: white;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    .key-display {
-      margin-top: 20px;
-      font-size: 1.2em;
-    }
-    .bubbles {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-    .bubble {
-      position: absolute;
-      bottom: 0;
-      width: 10px;
-      height: 10px;
-      background: purple;
-      border-radius: 50%;
-      animation: rise 5s infinite ease-in;
-    }
-    @keyframes rise {
-      0% {
-        bottom: 0;
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        bottom: 100%;
-        opacity: 0;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Key Generator | Secure Access</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Key Generator</h1>
-    <button class="button" onclick="generateKey()">Generate Key</button>
-    <div class="key-display" id="keyDisplay"></div>
-    <div class="bubbles" id="bubbles"></div>
-  </div>
+  <div class="bubbles"></div>
 
-  <script>
-    function generateKey() {
-      fetch('http://localhost:3000/generate', { method: 'POST' })
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('keyDisplay').innerText = `Your Key: ${data.key}`;
-        });
-    }
+  <header>
+    <h1>KeyGen Vault</h1>
+    <p>Your secure access starts here.</p>
+  </header>
 
-    // Create bubble animations
-    const bubblesContainer = document.getElementById('bubbles');
-    for (let i = 0; i < 50; i++) {
-      const bubble = document.createElement('div');
-      bubble.classList.add('bubble');
-      bubble.style.left = `${Math.random() * 100}%`;
-      bubble.style.animationDuration = `${2 + Math.random() * 3}s`;
-      bubble.style.width = bubble.style.height = `${5 + Math.random() * 15}px`;
-      bubblesContainer.appendChild(bubble);
-    }
-  </script>
+  <main>
+    <section class="card">
+      <h2>Generate Your Access Key</h2>
+      <button id="generateBtn">Generate Key</button>
+      <div id="keyOutput"></div>
+    </section>
+
+    <section class="card" id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>How long does a key last?</h3>
+        <p>Each key is valid for 24 hours from the time of generation.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I generate multiple keys?</h3>
+        <p>You can, but each key is tracked separately in our database.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is it safe to share my key?</h3>
+        <p>No. Your key is unique and should be kept confidential.</p>
+      </div>
+    </section>
+
+    <section class="card" id="about">
+      <h2>About KeyGen Vault</h2>
+      <p>
+        KeyGen Vault is a secure and modern platform for generating temporary software access keys.
+        Ideal for businesses and developers, our system ensures that each key is encrypted and valid for 24 hours only.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 KeyGen Vault. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
